@@ -21,9 +21,10 @@ def get_conteudo(drv, urls):
     return results
 
 
-
-driver = webdriver.Firefox()
-driver_conteudo = webdriver.Firefox()
+options = webdriver.FirefoxOptions()
+options.headless = True
+driver_conteudo = webdriver.Firefox(options=options)
+driver = webdriver.Firefox(options=options)
 url = 'http://books.toscrape.com'
 driver.get(url)
 wait_element(driver, "//li[@class='next']/a", by=By.XPATH)
